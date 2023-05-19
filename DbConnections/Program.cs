@@ -12,12 +12,8 @@
 
     public abstract void OpenConnection();
     public abstract void CloseConnection();
-
-    public void Dispose()
-    {
-        CloseConnection();
-        Console.WriteLine("Bye bye connection");
-    }
+    public abstract void Dispose();
+   
 }
 
 public class OracleDbConnection : DbConnection
@@ -46,6 +42,11 @@ public class OracleDbConnection : DbConnection
         {
             throw new InvalidOperationException("Connection was not opened.");
         }
+    }
+
+    public override void Dispose()
+    {
+        Console.WriteLine("Disposing");
     }
 }
 
@@ -76,6 +77,10 @@ public class SqlDbConnection : DbConnection
         {
             throw new InvalidOperationException("Connection was not opened.");
         }
+    }
+    public override void Dispose()
+    {
+        Console.WriteLine("Disposing");
     }
 }
 public class DbCommand

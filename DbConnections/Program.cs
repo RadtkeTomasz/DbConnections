@@ -91,13 +91,13 @@ public class DbCommand
     {
         if (_dbConnection.Opened)
         {
-            _dbConnection.OpenConnection();
             Console.WriteLine($"Executing command using query: {_commandText}");
             _dbConnection.CloseConnection();
         }
         else
         {
-            throw new InvalidOperationException("Cannot execute. The database connection was closed.");
+            _dbConnection.OpenConnection();
+            Console.WriteLine($"Executing command using query: {_commandText}");
         }
     }
 }

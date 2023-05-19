@@ -13,7 +13,6 @@
     public abstract void OpenConnection();
     public abstract void CloseConnection();
     public abstract void Dispose();
-   
 }
 
 public class OracleDbConnection : DbConnection

@@ -91,7 +91,9 @@ public class DbCommand
     {
         if (_dbConnection.Opened)
         {
+            _dbConnection.OpenConnection();
             Console.WriteLine($"Executing command using query: {_commandText}");
+            _dbConnection.CloseConnection();
         }
         else
         {
